@@ -27,7 +27,7 @@ pub(crate) type Memberlist = Vec<String>;
 
 #[async_trait]
 pub(crate) trait MemberlistProvider: Component + Configurable {
-    fn subscribe(&mut self, receiver: Box<dyn Receiver<Memberlist> + Send>) -> ();
+    fn subscribe(&mut self, receiver: Box<dyn Receiver<Memberlist>>) -> ();
 }
 
 /* =========== CRD ============== */
@@ -57,7 +57,7 @@ pub(crate) struct CustomResourceMemberlistProvider {
     memberlist_cr_client: Api<MemberListKubeResource>,
     queue_size: usize,
     current_memberlist: RwLock<Memberlist>,
-    subscribers: Vec<Box<dyn Receiver<Memberlist> + Send>>,
+    subscribers: Vec<Box<dyn Receiver<Memberlist>>>,
 }
 
 impl Debug for CustomResourceMemberlistProvider {
@@ -180,7 +180,7 @@ impl Component for CustomResourceMemberlistProvider {
         self.queue_size
     }
 
-    fn on_start(&self, ctx: &ComponentContext<CustomResourceMemberlistProvider>) {
+    fn on_start(&mut self, ctx: &ComponentContext<CustomResourceMemberlistProvider>) {
         self.connect_to_kube_stream(ctx);
     }
 }
@@ -234,7 +234,7 @@ impl StreamHandler<Option<MemberListKubeResource>> for CustomResourceMemberlistP
 
 #[async_trait]
 impl MemberlistProvider for CustomResourceMemberlistProvider {
-    fn subscribe(&mut self, sender: Box<dyn Receiver<Memberlist> + Send>) -> () {
+    fn subscribe(&mut self, sender: Box<dyn Receiver<Memberlist>>) -> () {
         self.subscribers.push(sender);
     }
 }
