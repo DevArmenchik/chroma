@@ -75,8 +75,10 @@ call-bind@^1.0.0:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.2"
 
-"chromadb@file:../..":
-  version "1.7.1-beta2"
+chromadb@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/chromadb/-/chromadb-1.7.3.tgz#809019efd8c6126c5e4527875905f29c6c828fa6"
+  integrity sha512-3GgvQjpqgk5C89x5EuTDaXKbfrdqYDJ5UVyLQ3ZmwxnpetNc+HhRDGjkvXa5KSvpQ3lmKoyDoqnN4tZepfFkbw==
   dependencies:
     cliui "^8.0.1"
     isomorphic-fetch "^3.0.0"
