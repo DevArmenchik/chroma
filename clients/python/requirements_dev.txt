@@ -1,4 +1,4 @@
-fastapi>=0.95.2
+fastapi>=0.109.1
 hypothesis
 hypothesis[numpy]
 opentelemetry-instrumentation-fastapi>=0.41b0
