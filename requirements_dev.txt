@@ -11,3 +11,4 @@ pytest-asyncio
 setuptools_scm
 types-protobuf
 types-requests==2.30.0.0
+setuptools>=70.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
