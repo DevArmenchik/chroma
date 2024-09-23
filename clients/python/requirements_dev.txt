@@ -1,7 +1,10 @@
-fastapi>=0.95.2
+fastapi>=0.109.1
 hypothesis
 hypothesis[numpy]
 opentelemetry-instrumentation-fastapi>=0.41b0
 pypika==0.48.9
 pytest
 uvicorn[standard]==0.18.3
+anyio>=4.4.0 # not directly required, pinned by Snyk to avoid a vulnerability
+setuptools>=70.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
