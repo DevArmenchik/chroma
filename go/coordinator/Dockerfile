@@ -8,7 +8,7 @@ ADD ./go/coordinator /src/chroma-coordinator
 RUN cd /src/chroma-coordinator \
     && make
 
-FROM alpine:3.17.3
+FROM alpine:3.21.3
 
 RUN apk add --no-cache bash bash-completion jq findutils
 
